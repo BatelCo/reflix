@@ -4,9 +4,9 @@ import React, { Component } from "react"
 import BadLogin from "./components/badLogin"
 import Catalog from "./components/catalog"
 import Movie from "./components/movie"
-import UserSelection from "./components/userSelection"
+import UserSelection from "./components/Users"
+import constants from './constants' 
 
-const MOVIE_COST = 3
 
 class App extends Component {
 	constructor() {
@@ -86,6 +86,74 @@ class App extends Component {
 		}
 	}
 
+	selectUser = (userName) => {
+		this.setState({ currentUser: userName })
+	}
+
+	rentMovie = (movieId) => {
+		const state = this.state
+		const currentUserDetails = state.users.find(
+			(u) => u.name === state.currentUser
+		)
+
+		if (currentUserDetails.budget >= constants.MOVIE_COST) {
+			const updatedUsers = [...state.users]
+			const user_index = updatedUsers.findIndex(
+				(u) => u.name === state.currentUser
+			)
+			updatedUsers[user_index].rented.push(movieId)
+			updatedUsers[user_index].budget -= constants.MOVIE_COST
+			this.setState({
+				users: [...updatedUsers],
+			})
+		}
+	}
+
+	unrentMovie = (movieId) => {
+		const state = this.state
+		const currentUserDetails = state.users.find(
+			(u) => u.name === state.currentUser
+		)
+
+		if (currentUserDetails.rented.includes(movieId)) {
+			const updatedUsers = [...state.users]
+			const user_index = updatedUsers.findIndex(
+				(u) => u.name === state.currentUser
+			)
+			const movieIndex = updatedUsers[user_index].rented.indexOf(movieId)
+			updatedUsers[user_index].rented.splice(movieIndex, 1)
+			updatedUsers[user_index].budget += constants.MOVIE_COST
+			this.setState({
+				users: [...updatedUsers],
+			})
+		}
+	}
+
+	render() {
+		const state = this.state
+		const movies = state.movies
+		const currentUser = state.currentUser
+		const currentUserDetails = state.users.find(
+			(u) => u.name === currentUser
+		)
+
+		return (
+			<Router>
+				<div className="App">
+					<div id="home-background"></div>
+					<div className="header">
+						<div id="nav-bar">
+							<Link to="/">Profiles</Link> 
+							<Link to="/catalog">Catalog</Link>
+						</div>
+						<div id="app-name">Reflix</div>
+					</div>
+				
+					</div>
+				</div>
+			</Router>
+		)
+	}
 }
 
 export default App
