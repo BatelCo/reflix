@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import Movie from "./Movie"
 import "../styles/Movies.css"
+import SearchInput from './SearchInput'
 
 
 class Movies extends Component {
@@ -40,19 +41,12 @@ class Movies extends Component {
 	getInputFilterElement = () => {
 		const searchInput = this.state.searchInput
 		return (
-			<input
-				className="search-input"
-				type="text" 
-				placeholder="Search movie"
-				value={searchInput}
-				onChange={this.handleInput}
-			></input>
+			<SearchInput searchInput={searchInput} handleInput={this.handleInput}></SearchInput>
 		)
 	}
 
-	handleInput = (e) => {
-		let inputValue = e.target.value
-		this.setState({ searchInput: inputValue })
+	handleInput = (value) => {
+		this.setState({ searchInput: value })
 	}
 
 	isSubStrIns = (str, substr) =>
@@ -61,11 +55,11 @@ class Movies extends Component {
 	render() {
 		const search = this.state.searchInput
 		const movies = this.props.movies
-		const fltrMvs = movies.filter((m) => this.isSubStrIns(m.title, search))
+		const filteredMovies = movies.filter((m) => this.isSubStrIns(m.title, search))
 		const userDetails = this.props.user
 		const userRent = userDetails.rented
-		let rentedMovies = fltrMvs.filter((m) => userRent.includes(m.id))
-		let availableMovies = fltrMvs.filter((m) => !userRent.includes(m.id))
+		let rentedMovies = filteredMovies.filter((m) => userRent.includes(m.id))
+		let availableMovies = filteredMovies.filter((m) => !userRent.includes(m.id))
 		return (
 			<div id="catalog">
 				<div className="footer">
