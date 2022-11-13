@@ -12,10 +12,10 @@ class App extends Component {
 		this.state = {
 			currentUser: null,
 			users: [
-				{ name: "Or", budget: 10, img: "https://www.freeiconspng.com/thumbs/minions-png/minion-with-guitar-png-31.png", rented: [],},
-				{ name: "Nir", budget: 10, img:"https://www.freepnglogos.com/uploads/minions-png/minions-shoeps-19.png", rented: [],},
-				{ name: "Batel", budget: 10, img: "https://www.pngplay.com/wp-content/uploads/2/Minions-No-Background.png", rented: [],},
-				{ name: "Orya", budget: 10, img: "https://www.freeiconspng.com/uploads/file-bob-the-minion-png-0.png", rented: [],},
+				{ name: "Or", budget: constants.INIT_BUDGET, img: "https://www.freeiconspng.com/thumbs/minions-png/minion-with-guitar-png-31.png", rented: [],},
+				{ name: "Nir", budget: constants.INIT_BUDGET, img:"https://www.freepnglogos.com/uploads/minions-png/minions-shoeps-19.png", rented: [],},
+				{ name: "Batel", budget: constants.INIT_BUDGET, img: "https://www.pngplay.com/wp-content/uploads/2/Minions-No-Background.png", rented: [],},
+				{ name: "Orya", budget: constants.INIT_BUDGET, img: "https://www.freeiconspng.com/uploads/file-bob-the-minion-png-0.png", rented: [],},
 			],
 			movies: [ { id: 8, isRented: false, title: "The Little Mermaid", year: 1990, img: "https://i.ebayimg.com/images/g/1EAAAOSw9r1WDXRg/s-l500.jpg", descrShort: "A teenage mermaid princess named Ariel, who dreams of becoming human and falls in love with a human prince named Eric, which leads her to make a magic deal with the sea witch, Ursula, to become human and be with him." },
             { id: 0, isRented: false, title: "The Lion King", img: "https://img00.deviantart.net/b782/i/2006/207/e/7/the_lion_king_front_cd_cover_by_peachpocket285.jpg", year: 1994, descrShort: "A young lion prince named Simba is born into wealth but raised into incredible misfortune. Trickster uncle, dying father, usurpation. Luckily, an unlikely meerkat-warthog pair take him in and teach him The Ways of the Bum Life. Be prepared for ghostly hallucinations, wild baboons, creepy crawlies." },
@@ -77,8 +77,8 @@ class App extends Component {
 		const currentUserDetails = this.state.users.find((u) => u.name === this.state.currentUser)
 		return (
 			<Router>
+				
 				<div className="App">
-					<div id="home-background"></div>
 					<div className="header">
 						<div id="app-name"> Reflix </div>
 						<div id="nav-bar">
@@ -103,6 +103,7 @@ class App extends Component {
 									/>
 							}
 						/>
+
 						<Route exact path="/movie/:id"
 							render={({ match }) => <Movie
 										match={match}
