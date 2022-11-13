@@ -55,14 +55,10 @@ body{
 
 .current-profile-box{
     position: absolute;
-    left: 0;
-    bottom: 0;
-    padding: 20px;
-    height: 30px;
-    width: 200px;
+    left: 500px;
     text-align: left;
     font-size: 25px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Arial Bold';
 }
 
 #app-name{
@@ -85,7 +81,6 @@ body{
     border-radius: 10px;
 }
 .movies-container{
-    
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
