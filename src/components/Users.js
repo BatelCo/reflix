@@ -11,8 +11,8 @@ class Users extends Component {
 		this.props.selectUser(userName)
 	}
 
-	getUserElement = (userDetails, key) => (
-		<User key={key} profile={userDetails} selectUser={this.selectUser} />
+	getUserElement = (userDetails, value) => (
+		<User key={value} profile={userDetails}selectUser={this.selectUser} />
 	)
 
 	render() {
