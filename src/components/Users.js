@@ -19,7 +19,7 @@ class Users extends Component {
 		let users = this.props.users
 		return (
 			<div className="selection-container">
-				<h3>WHO'S WATCHING?</h3>
+				<h3> WHO'S WATCHING? </h3>
 				<div className="user-invetory">
 					{users.map((u, v) => this.getUserElement(u, v))}
 				</div>
