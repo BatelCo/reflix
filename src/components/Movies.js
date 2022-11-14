@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import SearchInput from './SearchInput/SearchInput'
-import Movie from "./Movie"
+import Movie from "./Movie/Movie"
 
 
 class Movies extends Component {

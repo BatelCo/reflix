@@ -2,7 +2,7 @@ import "./App.css"
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 import React, { Component } from "react"
 import Movies from "./components/Movies"
-import Movie from "./components/Movie"
+import Movie from "./components/Movie/Movie"
 import UserSelection from "./components/Users"
 import constants from './constants'
 import appData from './AppData'

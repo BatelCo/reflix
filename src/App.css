@@ -69,16 +69,7 @@ body{
     font-size: 25px;
     font-family:'Franklin Gothic Medium';
 }
-.mini-movie{
-    position:relative;
-    flex-basis: 100%;
-    text-align: center;
-}
-.movie-img{
-    width: fit-content;
-    max-height: 150px;
-    border-radius: 10px;
-}
+
 .movies-container{
     display: flex;
     flex-wrap: wrap;
