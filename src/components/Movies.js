@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import SearchInput from './SearchInput'
+import SearchInput from './SearchInput/SearchInput'
 import Movie from "./Movie"
 
 
