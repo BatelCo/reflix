@@ -59,7 +59,6 @@ class App extends Component {
 	}
 
 	render() {
-		const state = this.state
 		const currentUserDetails = this.state.users.find((u) => u.name === this.state.currentUser)
 		return (
 			<Router>
@@ -76,14 +75,14 @@ class App extends Component {
 
 						<Route exact path="/"
 							render={() => ( <UserSelection
-								users={state.users}
+								users={this.state.users}
 								selectUser={this.selectUser} /> )}
 						/>
 
 						<Route exact path="/catalog"
 							render={() => <Movies
 										user={currentUserDetails}
-										movies={state.movies}
+										movies={this.state.movies}
 										rentMovie={this.rentMovie}
 										unrentMovie={this.unrentMovie}
 									/>
@@ -94,7 +93,7 @@ class App extends Component {
 							render={({ match }) => <Movie
 										match={match}
 										key={match.params.id}
-										movieInfo={state.movies.find(
+										movieInfo={this.state.movies.find(
 											(m) => m.id == match.params.id
 										)}
 										showDetails={true}

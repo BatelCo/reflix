@@ -16,7 +16,7 @@ class Movie extends Component {
 		)
 	}
 
-	getMinimizedMovieStructure = (isRented, movieInfo) => {
+	getMinimizedMovieToRender = (isRented, movieInfo) => {
 		return (
 			<div className="mini-movie">
 				<span
@@ -30,7 +30,7 @@ class Movie extends Component {
 		)
 	}
 
-	getDetailedMovieStructure = (movieInfo) => {
+	getDetailedMovieToRender = (movieInfo) => {
 		return (
 			<div className="movie">
 				<p className="title">
@@ -47,8 +47,8 @@ class Movie extends Component {
 		const showDetails = this.props.showDetails
 		const isRented = this.props.rented
 		return showDetails
-			? this.getDetailedMovieStructure(movieInfo)
-			: this.getMinimizedMovieStructure(isRented, movieInfo)
+			? this.getDetailedMovieToRender(movieInfo)
+			: this.getMinimizedMovieToRender(isRented, movieInfo)
 	}
 }
 
