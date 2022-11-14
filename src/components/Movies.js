@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import SearchInput from './SearchInput'
 import Movie from "./Movie"
-import "../styles/Movies.css"
 
 
 class Movies extends Component {
